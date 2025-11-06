@@ -9,3 +9,14 @@
     </nav>
   </header>
 </template>
+
+
+<style>
+li{
+  color: red;
+}
+a{
+  color: red;
+  text-decoration: none;
+}
+</style>
