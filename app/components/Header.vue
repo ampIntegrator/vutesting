@@ -11,12 +11,12 @@
 </template>
 
 
-<style>
+<style lang="scss">
 li{
   color: red;
-}
-a{
-  color: red;
-  text-decoration: none;
+  a{
+    color: red;
+    text-decoration: none;
+  }
 }
 </style>
