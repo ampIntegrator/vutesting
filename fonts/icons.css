@@ -1,0 +1,124 @@
+/*--------------------------------
+
+Valhor icon font
+Generated using nucleoapp.com
+
+-------------------------------- */
+
+@font-face {
+  font-family: 'Valhor';
+  src: url('../fonts/Valhor.eot');
+  src: url('../fonts/Valhor.eot') format('embedded-opentype'),
+       url('../fonts/Valhor.woff2') format('woff2'),
+       url('../fonts/Valhor.woff') format('woff'),
+       url('../fonts/Valhor.ttf') format('truetype'),
+       url('../fonts/Valhor.svg') format('svg');
+}
+
+/* base class */
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'Valhor';
+  color: inherit;
+  flex-shrink: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* size examples - relative units */
+.icon-sm {
+  font-size: 0.8em;
+}
+
+.icon-lg {
+  font-size: 1.2em;
+}
+
+/* size examples - absolute units */
+.icon-16 {
+  font-size: 16px;
+}
+
+.icon-32 {
+  font-size: 32px;
+}
+
+/* rotate the icon infinitely */
+.icon-is-spinning {
+  animation: icon-spin 1s infinite linear;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* transform */
+.icon-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.icon-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.icon-flip-y {
+  transform: scaleY(-1);
+}
+
+.icon-flip-x {
+  transform: scaleX(-1);
+}
+
+/* icons */
+.icon-user::before {
+  content: "\ea0b";
+}
+
+.icon-student::before {
+  content: "\ea0d";
+}
+
+.icon-bullhorn::before {
+  content: "\ea0f";
+}
+
+.icon-greek-temple::before {
+  content: "\ea10";
+}
+
+.icon-magnifier::before {
+  content: "\ea13";
+}
+
+.icon-xmark::before {
+  content: "\ea14";
+}
+
+.icon-priority-low::before {
+  content: "\ea15";
+}
+
+.icon-arrow-right::before {
+  content: "\ea16";
+}
+
+.icon-suitcase::before {
+  content: "\ea17";
+}
+
+.icon-menu::before {
+  content: "\ea19";
+}
+
+.icon-alert-question::before {
+  content: "\ea1a";
+}
