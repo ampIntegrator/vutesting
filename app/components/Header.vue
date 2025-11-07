@@ -22,13 +22,13 @@ header {
 
       li {
         a {
-          color: #333;
+          color: $color-text;
           text-decoration: none;
           padding: 10px 15px;
           transition: color 0.3s ease;
 
           &:hover {
-            color: #007bff;
+            color: $color-primary;
           }
         }
       }

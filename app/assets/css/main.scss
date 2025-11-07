@@ -6,13 +6,7 @@
 /*--------------------------------
   Variables
 -------------------------------- */
-$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-family-icons: 'Valhor';
-
-$color-primary: #007bff;
-$color-primary-dark: #0056b3;
-$color-text: #333;
-$color-bg: #fff;
+@import './variables';
 
 /*--------------------------------
   Valhor Icon Font
