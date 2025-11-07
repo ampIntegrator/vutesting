@@ -1,0 +1,206 @@
+/*--------------------------------
+  Google Fonts
+-------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*--------------------------------
+  Variables
+-------------------------------- */
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-icons: 'Valhor';
+
+$color-primary: #007bff;
+$color-primary-dark: #0056b3;
+$color-text: #333;
+$color-bg: #fff;
+
+/*--------------------------------
+  Valhor Icon Font
+  Generated using nucleoapp.com
+-------------------------------- */
+@font-face {
+  font-family: $font-family-icons;
+  src: url('/fonts/Valhor.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Base icon class */
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 $font-family-icons;
+  color: inherit;
+  flex-shrink: 0;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Icon sizes - relative units
+  &-sm {
+    font-size: 0.8em;
+  }
+
+  &-lg {
+    font-size: 1.2em;
+  }
+
+  // Icon sizes - absolute units
+  &-16 {
+    font-size: 16px;
+  }
+
+  &-32 {
+    font-size: 32px;
+  }
+
+  // Rotate icon infinitely
+  &-is-spinning {
+    animation: icon-spin 1s infinite linear;
+  }
+
+  // Transform utilities
+  &-rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  &-rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  &-rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  &-flip-y {
+    transform: scaleY(-1);
+  }
+
+  &-flip-x {
+    transform: scaleX(-1);
+  }
+
+  // Icon glyphs
+  &-user::before {
+    content: "\ea0b";
+  }
+
+  &-student::before {
+    content: "\ea0d";
+  }
+
+  &-bullhorn::before {
+    content: "\ea0f";
+  }
+
+  &-greek-temple::before {
+    content: "\ea10";
+  }
+
+  &-magnifier::before {
+    content: "\ea13";
+  }
+
+  &-xmark::before {
+    content: "\ea14";
+  }
+
+  &-priority-low::before {
+    content: "\ea15";
+  }
+
+  &-arrow-right::before {
+    content: "\ea16";
+  }
+
+  &-suitcase::before {
+    content: "\ea17";
+  }
+
+  &-menu::before {
+    content: "\ea19";
+  }
+
+  &-alert-question::before {
+    content: "\ea1a";
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------
+  Global Styles
+-------------------------------- */
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+/* Layout utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Add more global styles as needed */
