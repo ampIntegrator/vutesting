@@ -11,12 +11,28 @@
 </template>
 
 
-<style lang="scss">
-li{
-  color: red;
-  a{
-    color: red;
-    text-decoration: none;
+<style lang="scss" scoped>
+header {
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+
+      li {
+        a {
+          color: #333;
+          text-decoration: none;
+          padding: 10px 15px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #007bff;
+          }
+        }
+      }
+    }
   }
 }
 </style>
