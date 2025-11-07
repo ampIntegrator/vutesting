@@ -1,4 +1,5 @@
 <script setup>
+import MenuList from './MenuList.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const headerRef = ref(null)
@@ -155,14 +156,7 @@ onUnmounted(() => {
     
     <div class="headerBottom">
       <div class="container">
-        <ul class="ulWithSub">
-          <li @click="handleMenuItemClick('bottom', 0, $event)"><span>Le Végétal &<br>les métiers du futur</span></li>
-          <li @click="handleMenuItemClick('bottom', 1, $event)"><span>L'interprofession<br>VALHOR</span></li>
-          <li @click="handleMenuItemClick('bottom', 2, $event)"><span>Valoriser<br>la filière</span></li>
-          <li @click="handleMenuItemClick('bottom', 3, $event)"><span>Filière<br>durable</span></li>
-          <li @click="handleMenuItemClick('bottom', 4, $event)"><span>Le marché<br>du Végétal</span></li>
-          <li @click="handleMenuItemClick('bottom', 5, $event)"><span>Faire pousser<br>l'excellence</span></li>
-        </ul>
+        <MenuList context="bottom" @menuClick="handleMenuItemClick" />
       </div>
     </div>
     
@@ -172,14 +166,7 @@ onUnmounted(() => {
           <NuxtLink to="/" class="logo">
             <img src="/images/logo-green-scroll.svg" alt="">
           </NuxtLink>
-          <ul>
-            <li @click="handleMenuItemClick('sticky', 0, $event)"><span>Le Végétal &<br>les métiers du futur</span></li>
-            <li @click="handleMenuItemClick('sticky', 1, $event)"><span>L'interprofession<br>VALHOR</span></li>
-            <li @click="handleMenuItemClick('sticky', 2, $event)"><span>Valoriser<br>la filière</span></li>
-            <li @click="handleMenuItemClick('sticky', 3, $event)"><span>Filière<br>durable</span></li>
-            <li @click="handleMenuItemClick('sticky', 4, $event)"><span>Le marché<br>du Végétal</span></li>
-            <li @click="handleMenuItemClick('sticky', 5, $event)"><span>Faire pousser<br>l'excellence</span></li>
-          </ul>
+          <MenuList context="sticky" @menuClick="handleMenuItemClick" />
           
           <div class="headerActionDesktop">
             <NuxtLink to="/" class="btn outlineMain small espacePro"><span>Espace Pro</span><i class="icon icon-arrow-right"></i></NuxtLink>
@@ -256,38 +243,36 @@ onUnmounted(() => {
   background-color: $white;
   transition: $trans;
 
-  .container {
-    ul {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      transition: $trans;
+  display: flex;
+  align-items: center;
+}
 
-      li {
-        flex-grow: 1;
+.headerBottom {
+  :deep(ul) {
+    max-width: 1100px;
+    li{
+        padding: 0 20px;
+      span {
+        font-size: 16px;
         height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        transition: $trans;
-        text-align: center;
-
-        span {
-          display: block;
-          width: 100%;
-          color: $ink;
-          font-weight: 500;
-        }
-
-        &.active {
-          background-color: $light;
-
-          span {
-            color: $main
-          }
-        }
       }
+    }
+  }
+}
+
+.stickyHeader {
+  :deep(ul) {
+    max-width: 100%;
+    li{
+        padding: 0 20px;
+        margin: 0 0px;
+        span{
+          height: 50px;
+
+        }
+      span {
+      font-size: 14px;
+    }
     }
   }
 }
@@ -322,7 +307,7 @@ onUnmounted(() => {
   z-index: 10;
   transition: $trans;
   transform: translateY(-100%);
-
+  height: 50px;
   .logo {
     img {
       height: 26px;
