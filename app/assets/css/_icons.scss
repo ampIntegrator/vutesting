@@ -1,0 +1,120 @@
+/*--------------------------------
+  Valhor Icon Font
+  Generated using nucleoapp.com
+-------------------------------- */
+@font-face {
+  font-family: Valhor;
+  src: url('/fonts/Valhor.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Base icon class */
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 Valhor;
+  color: inherit;
+  flex-shrink: 0;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Icon sizes - relative units
+  &-sm {
+    font-size: 0.8em;
+  }
+
+  &-lg {
+    font-size: 1.2em;
+  }
+
+  // Icon sizes - absolute units
+  &-16 {
+    font-size: 16px;
+  }
+
+  &-32 {
+    font-size: 32px;
+  }
+
+  // Rotate icon infinitely
+  &-is-spinning {
+    animation: icon-spin 1s infinite linear;
+  }
+
+  // Transform utilities
+  &-rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  &-rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  &-rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  &-flip-y {
+    transform: scaleY(-1);
+  }
+
+  &-flip-x {
+    transform: scaleX(-1);
+  }
+
+  // Icon glyphs
+  &-user::before {
+    content: "\ea0b";
+  }
+
+  &-student::before {
+    content: "\ea0d";
+  }
+
+  &-bullhorn::before {
+    content: "\ea0f";
+  }
+
+  &-greek-temple::before {
+    content: "\ea10";
+  }
+
+  &-magnifier::before {
+    content: "\ea13";
+  }
+
+  &-xmark::before {
+    content: "\ea14";
+  }
+
+  &-priority-low::before {
+    content: "\ea15";
+  }
+
+  &-arrow-right::before {
+    content: "\ea16";
+  }
+
+  &-suitcase::before {
+    content: "\ea17";
+  }
+
+  &-menu::before {
+    content: "\ea19";
+  }
+
+  &-alert-question::before {
+    content: "\ea1a";
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

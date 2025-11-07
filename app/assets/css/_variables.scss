@@ -3,13 +3,17 @@
 -------------------------------- */
 
 // Fonts
-$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-family-icons: 'Valhor';
+$ff : Montserrat, arial, sans-serif;
 
 // Colors
-$color-primary: #007bff;
-$color-primary-dark: #0056b3;
-$color-text: #333;
-$color-bg: #fff;
-
+$main : #005b2e;
+$second : #269b3a;
+$third : #b0cb08;
+$light : #f4f5f4;
+$ink : #212121;
+$white : #fff;
+$mainBG : #eee;
 // Add more variables as needed
+$trans          : .3s all ease-in-out;
+$containerMax   : 1440px;
+$boxShadow      : 0 1rem 3rem rgba(0, 0, 0, 0.175);
