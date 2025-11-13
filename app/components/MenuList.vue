@@ -9,6 +9,7 @@ const props = defineProps({
 const emit = defineEmits(['menuClick'])
 
 const menuItems = [
+    'Recommandé <br>pour vous',
     'Le Végétal &<br>les métiers du futur',
     'L\'interprofession<br>VALHOR',
     'Valoriser<br>la filière',
