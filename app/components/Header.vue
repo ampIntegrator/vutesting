@@ -1,5 +1,6 @@
 <script setup>
 import MenuList from './MenuList.vue'
+import Modal from './Modal.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const headerRef = ref(null)
@@ -117,185 +118,32 @@ const handleTopMenuClick = () => {
   closeSubMenu()
 }
 
-// Script 3 : Gestion whoAreYou et searchHeader
-const closeAll = () => {
-  const whoAreYou = document.getElementById('whoAreYou')
-  const searchHeader = document.getElementById('searchHeader')
-  const backdrop = document.querySelector('.backdrop')
-  
-  if (!whoAreYou || !backdrop) return
-  
-  const isMobile = window.innerWidth <= 1199
-  
-  backdrop.style.opacity = '0'
-  
-  if (whoAreYou.classList.contains('is-open')) {
-    whoAreYou.style.opacity = '0'
-    if (isMobile) {
-      whoAreYou.style.transform = 'translateX(-50%) scaleY(0)'
-    } else {
-      whoAreYou.style.transform = 'scaleY(0)'
-    }
-  }
-  
-  if (searchHeader && searchHeader.classList.contains('is-open')) {
-    searchHeader.style.opacity = '0'
-    searchHeader.style.transform = 'scaleY(0)'
-  }
-  
-  setTimeout(() => {
-    whoAreYou.classList.remove('is-open')
-    if (searchHeader) searchHeader.classList.remove('is-open')
-    backdrop.classList.remove('is-open')
-  }, 300)
-}
-
-const openWhoAreYou = (event) => {
-  const trigger = event.currentTarget
-  const whoAreYou = document.getElementById('whoAreYou')
-  const backdrop = document.querySelector('.backdrop')
-  
-  if (!whoAreYou || !backdrop) return
-  
-  backdrop.classList.add('is-open')
-  backdrop.style.opacity = '1'
-  
-  const isMobile = window.innerWidth <= 1199
-  
-  if (isMobile) {
-    whoAreYou.style.top = '20px'
-    whoAreYou.style.left = '50%'
-    whoAreYou.style.right = 'auto'
-    whoAreYou.style.transform = 'translateX(-50%) scaleY(0)'
-    whoAreYou.style.maxWidth = '300px'
-    whoAreYou.style.width = 'calc(100% - 40px)'
-  } else {
-    whoAreYou.style.transform = 'scaleY(0)'
-    whoAreYou.style.maxWidth = ''
-    whoAreYou.style.width = '300px'
-    whoAreYou.style.right = 'auto'
-    
-    const triggerRect = trigger.getBoundingClientRect()
-    
-    whoAreYou.style.top = (triggerRect.top) + 'px'
-    whoAreYou.style.left = (triggerRect.right - 300) + 'px'
-  }
-  
-  whoAreYou.classList.add('is-open')
-  whoAreYou.style.opacity = '0'
-  whoAreYou.offsetHeight
-  
-  setTimeout(() => {
-    whoAreYou.style.opacity = '1'
-    if (isMobile) {
-      whoAreYou.style.transform = 'translateX(-50%) scaleY(1)'
-    } else {
-      whoAreYou.style.transform = 'scaleY(1)'
-    }
-  }, 10)
-}
-
-const openSearchHeader = () => {
-  const searchHeader = document.getElementById('searchHeader')
-  const backdrop = document.querySelector('.backdrop')
-  
-  if (!searchHeader || !backdrop) return
-  
-  backdrop.classList.add('is-open')
-  backdrop.style.opacity = '1'
-  
-  searchHeader.style.opacity = '0'
-  searchHeader.style.transform = 'scaleY(0)'
-  searchHeader.classList.add('is-open')
-  searchHeader.offsetHeight
-  
-  setTimeout(() => {
-    searchHeader.style.opacity = '1'
-    searchHeader.style.transform = 'scaleY(1)'
-  }, 10)
-}
+// Script 3 : Gestion Modal (WhoAreYou et SearchHeader)
+const isModalOpen = ref(false)
+const modalType = ref('who') // 'who' ou 'search'
 
 const handleWhoClick = (event) => {
   event.preventDefault()
-  const whoAreYou = document.getElementById('whoAreYou')
-  const searchHeader = document.getElementById('searchHeader')
-  
-  const isVisible = whoAreYou?.classList.contains('is-open')
-  
-  if (!isVisible) {
-    if (searchHeader?.classList.contains('is-open')) {
-      closeAll()
-      setTimeout(() => openWhoAreYou(event), 300)
-    } else {
-      openWhoAreYou(event)
-    }
-  } else {
-    closeAll()
-  }
+  modalType.value = 'who'
+  isModalOpen.value = true
 }
 
 const handleSearchClick = (event) => {
   event.preventDefault()
-  const whoAreYou = document.getElementById('whoAreYou')
-  const searchHeader = document.getElementById('searchHeader')
-  
-  const isVisible = searchHeader?.classList.contains('is-open')
-  
-  if (!isVisible) {
-    if (whoAreYou?.classList.contains('is-open')) {
-      closeAll()
-      setTimeout(openSearchHeader, 300)
-    } else {
-      openSearchHeader()
-    }
-  } else {
-    closeAll()
-  }
+  modalType.value = 'search'
+  isModalOpen.value = true
 }
 
-const handleBackdropClick = () => {
-  closeAll()
-}
-
-const handleDocumentClick = (e) => {
-  const whoAreYou = document.getElementById('whoAreYou')
-  const searchHeader = document.getElementById('searchHeader')
-  const backdrop = document.querySelector('.backdrop')
-  
-  const whoTriggers = document.querySelectorAll('.whoTrigger')
-  const searchTriggers = document.querySelectorAll('.searchTrigger')
-  
-  const isWhoTrigger = Array.from(whoTriggers).some(trigger => trigger.contains(e.target))
-  const isSearchTrigger = Array.from(searchTriggers).some(trigger => trigger.contains(e.target))
-  
-  if (!isWhoTrigger && 
-      !whoAreYou?.contains(e.target) && 
-      !isSearchTrigger && 
-      !searchHeader?.contains(e.target) && 
-      !backdrop?.contains(e.target)) {
-    closeAll()
-  }
+const closeModal = () => {
+  isModalOpen.value = false
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  document.addEventListener('click', handleDocumentClick)
-  
-  // Ajouter les listeners aux triggers
-  const backdrop = document.querySelector('.backdrop')
-  if (backdrop) {
-    backdrop.addEventListener('click', handleBackdropClick)
-  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  document.removeEventListener('click', handleDocumentClick)
-  
-  const backdrop = document.querySelector('.backdrop')
-  if (backdrop) {
-    backdrop.removeEventListener('click', handleBackdropClick)
-  }
 })
 </script>
 
@@ -633,66 +481,6 @@ ul {
   }
 }
 
-#whoAreYou {
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: center center;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-#whoAreYou.is-open {
-    opacity: 1;
-    transform: scaleY(1);
-    visibility: visible;
-}
-
-#whoAreYou {
-    position: fixed;
-    width: 300px;
-    z-index: 40;
-    a {
-        background-color: white;
-        ;
-        display: block;
-        padding: 10px 15px;
-        color: $main;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        transition: $trans;
-
-        * {
-            transition: inherit;
-        }
-
-        i {
-            font-size: 20px;
-            margin-right: 8px;
-        }
-
-        >span {
-
-            span {
-                font-weight: 500;
-                font-size: 15px;
-            }
-        }
-
-        p {
-            margin: 6px 0 0 0;
-            font-size: 14px;
-        }
-
-        &:hover {
-            background-color: $main;
-
-            * {
-                color: white !important
-            }
-        }
-    }
-}
-
 @media screen and (max-width: 1199px) {
   .headerActionMobile {
     display: flex;
@@ -719,24 +507,5 @@ ul {
   .headerBottom {
     display: none;
   }
-}
-.backdrop {
-  position: fixed;
-  z-index: 20;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  /* Ajuste selon ton $main */
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
-}
-
-.backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
 }
 </style>
