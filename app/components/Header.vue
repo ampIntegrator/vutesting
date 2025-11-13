@@ -1,12 +1,37 @@
 <script setup>
 import MenuList from './MenuList.vue'
 import Modal from './Modal.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, computed } from 'vue'
 import headerContent from '@/data/headerContent.json'
+
+// Import des composants de submenu
+import SubMenuPourVous from './submenu/SubMenuPourVous.vue'
+import SubMenuVegetal from './submenu/SubMenuVegetal.vue'
+import SubMenuValhor from './submenu/SubMenuValhor.vue'
+import SubMenuValoriser from './submenu/SubMenuValoriser.vue'
+import SubMenuDurable from './submenu/SubMenuDurable.vue'
+import SubMenuMarche from './submenu/SubMenuMarche.vue'
+import SubMenuExcellence from './submenu/SubMenuExcellence.vue'
 
 const headerRef = ref(null)
 const currentContext = ref(null)
 const activeMenuIndex = ref(0)
+
+// Mapping des composants de submenu
+const submenuComponents = [
+  SubMenuPourVous,
+  SubMenuVegetal,
+  SubMenuValhor,
+  SubMenuValoriser,
+  SubMenuDurable,
+  SubMenuMarche,
+  SubMenuExcellence
+]
+
+// Computed pour obtenir le composant actif
+const activeSubmenuComponent = computed(() => {
+  return submenuComponents[activeMenuIndex.value] || null
+})
 
 // Script 1 : Sticky header au scroll + fermeture du submenu
 const handleScroll = () => {
@@ -209,15 +234,11 @@ onUnmounted(() => {
     
     <div class="headerSubMenu">
       <div class="container">
-        <div
-          v-for="(item, index) in headerContent.menuItems"
-          :key="index"
+        <component
+          :is="activeSubmenuComponent"
+          v-if="activeSubmenuComponent"
           class="subMenuContent"
-          v-show="activeMenuIndex === index"
-        >
-          <h3>{{ item.submenu.title }}</h3>
-          <p>{{ item.submenu.content }}</p>
-        </div>
+        />
       </div>
     </div>
 
