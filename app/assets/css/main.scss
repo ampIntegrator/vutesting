@@ -1,22 +1,16 @@
 /*--------------------------------
-  Normalize CSS (Reset CSS)
+  Imports (MUST be first in Sass)
 -------------------------------- */
 @use 'normalize.css';
-
+@use './variables' as *;
+@use './icons' as *;
+@use './utilities' as *;
+@use './btn' as *;
 
 /*--------------------------------
   Google Fonts
 -------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-/*--------------------------------
-  Variables
--------------------------------- */
-@use './variables' as *;
-@use './icons' as *;
-@use './utilities' as *;
-@use './btn' as *;
 
 
 
