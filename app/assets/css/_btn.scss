@@ -1,0 +1,67 @@
+@use './variables' as *;
+
+.btn {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 6px;
+    transition: $trans ;
+
+    &.small{
+      padding: 4px 8px;
+      font-size: 14px;
+    }
+    >* {
+        transition: inherit;
+        color: inherit;
+        font-weight: 500;
+        &:nth-child(2) {
+            margin-left: 8px;
+        }
+    }
+
+    &.outlineMain {
+        border: 1px solid $main;
+        color: $main;
+        background-color: transparent;
+        &:hover {
+            background-color: $main;
+            color: white !important;
+        }
+    }
+    &.outlineWhite {
+        border: 1px solid $white;
+        color: $white;
+        background-color: transparent;
+        &:hover {
+            background-color: $white;
+            color: $main !important;
+        }
+    }
+
+    &.btnReverse {
+        background-color: white;
+
+        i {
+            color: $main;
+        }
+    }
+}
+
+.btnFull {
+    font-size: 24px;
+    padding-left: 6px;
+    margin-left: 6px;
+    margin-left: 15px;
+    border: 0;
+    color: $main;
+    background-color: transparent;
+    transition: $trans;
+    i{
+        color: inherit;
+        transition: $trans;
+    }
+}

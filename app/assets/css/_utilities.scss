@@ -1,0 +1,53 @@
+@use './variables' as *;
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  transition: $trans;
+
+  &:hover {
+    color: $second;
+  }
+}
+
+.flexCS {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.flexCC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexCSB {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
