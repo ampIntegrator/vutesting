@@ -204,7 +204,7 @@ onUnmounted(() => {
       <div class="container">
         <!-- NOUVEAU Contenu 1 pour "Recommandé pour vous" -->
         <div class="subMenuContent" v-show="activeMenuIndex === 0">
-          <h3>Recommandé pour vous</h3>
+          <h3>Pour vous</h3>
           <p>Ici, on trouvera les liens liés à chaque profil</p>
         </div>
         
@@ -312,11 +312,11 @@ onUnmounted(() => {
         padding: 0 20px;
         margin: 0 0px;
         span{
-          height: 50px;
+          height: 56px;
 
         }
       span {
-      font-size: 14px;
+      font-size: 15px;
     }
     }
   }
@@ -352,10 +352,9 @@ onUnmounted(() => {
   z-index: 10;
   transition: $trans;
   transform: translateY(-100%);
-  height: 50px;
   .logo {
     img {
-      height: 26px;
+      height: 30px;
     }
 
   }
