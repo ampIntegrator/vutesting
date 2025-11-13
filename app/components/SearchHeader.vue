@@ -1,24 +1,6 @@
-<template>
-  <div class="search-header">
-    <h2>Rechercher</h2>
-    <form @submit.prevent="handleSearch">
-      <div class="search-input-group">
-        <input
-          type="text"
-          v-model="searchQuery"
-          placeholder="Votre recherche..."
-          class="search-input"
-        />
-        <button type="submit" class="btn btnOutline search-btn">
-          <i class="icon icon-magnifier"></i>
-        </button>
-      </div>
-    </form>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
+import headerContent from '@/data/headerContent.json'
 
 const searchQuery = ref('')
 
@@ -30,6 +12,25 @@ const handleSearch = () => {
   }
 }
 </script>
+
+<template>
+  <div class="search-header">
+    <h2>{{ headerContent.search.title }}</h2>
+    <form @submit.prevent="handleSearch">
+      <div class="search-input-group">
+        <input
+          type="text"
+          v-model="searchQuery"
+          :placeholder="headerContent.search.placeholder"
+          class="search-input"
+        />
+        <button type="submit" class="btn btnOutline search-btn">
+          <i class="icon icon-magnifier"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .search-header {

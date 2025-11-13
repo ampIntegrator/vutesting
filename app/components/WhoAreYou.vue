@@ -1,37 +1,22 @@
+<script setup>
+import headerContent from '@/data/headerContent.json'
+</script>
+
 <template>
   <div class="who-are-you">
-    <h2>Vous êtes ?</h2>
+    <h2>{{ headerContent.whoAreYou.title }}</h2>
     <div class="who-links">
-      <NuxtLink to="/particulier" class="who-link">
+      <NuxtLink
+        v-for="(profile, index) in headerContent.whoAreYou.profiles"
+        :key="index"
+        :to="profile.url"
+        class="who-link"
+      >
         <span class="flexCS">
-          <i class="icon icon-user"></i>
-          <span class="who-title">Particulier</span>
+          <i class="icon" :class="profile.icon"></i>
+          <span class="who-title">{{ profile.title }}</span>
         </span>
-        <p>Idées, conseil, trouver un pro</p>
-      </NuxtLink>
-
-      <NuxtLink to="/professionnel" class="who-link">
-        <span class="flexCS">
-          <i class="icon icon-suitcase"></i>
-          <span class="who-title">Professionnel</span>
-        </span>
-        <p>Idées, conseil, trouver un pro</p>
-      </NuxtLink>
-
-      <NuxtLink to="/etudiant" class="who-link">
-        <span class="flexCS">
-          <i class="icon icon-student"></i>
-          <span class="who-title">Étudiant/Jeune</span>
-        </span>
-        <p>Idées, conseil, trouver un pro</p>
-      </NuxtLink>
-
-      <NuxtLink to="/presse" class="who-link">
-        <span class="flexCS">
-          <i class="icon icon-bullhorn"></i>
-          <span class="who-title">Presse/partenaires</span>
-        </span>
-        <p>Idées, conseil, trouver un pro</p>
+        <p>{{ profile.description }}</p>
       </NuxtLink>
     </div>
   </div>

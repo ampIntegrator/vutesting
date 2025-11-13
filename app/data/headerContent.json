@@ -1,0 +1,105 @@
+{
+  "topMenu": [
+    {
+      "label": "Cotisations & avantages",
+      "url": "/actualites"
+    },
+    {
+      "label": "Cité verte",
+      "url": "/notre-histoire"
+    },
+    {
+      "label": "Le Végétal, c'est la vie",
+      "url": "/qui-sommes-nous"
+    }
+  ],
+  "actions": {
+    "espacePro": "Espace Pro",
+    "youAre": "Vous êtes ?",
+    "search": "Rechercher"
+  },
+  "menuItems": [
+    {
+      "label": "Pour vous",
+      "submenu": {
+        "title": "Pour vous",
+        "content": "Ici, on trouvera les liens liés à chaque profil"
+      }
+    },
+    {
+      "label": "Le Végétal &<br>les métiers du futur",
+      "submenu": {
+        "title": "Le Végétal & les métiers du futur",
+        "content": "Lorem ipsum dolor sit amet..."
+      }
+    },
+    {
+      "label": "L'interprofession<br>VALHOR",
+      "submenu": {
+        "title": "L'interprofession VALHOR",
+        "content": "VALHOR représente..."
+      }
+    },
+    {
+      "label": "Valoriser<br>la filière",
+      "submenu": {
+        "title": "Valoriser la filière",
+        "content": "Nos actions pour promouvoir..."
+      }
+    },
+    {
+      "label": "Filière<br>durable",
+      "submenu": {
+        "title": "Filière durable",
+        "content": "Engagement environnemental..."
+      }
+    },
+    {
+      "label": "Le marché<br>du Végétal",
+      "submenu": {
+        "title": "Le marché du Végétal",
+        "content": "Chiffres clés, tendances..."
+      }
+    },
+    {
+      "label": "Faire pousser<br>l'excellence",
+      "submenu": {
+        "title": "Faire pousser l'excellence",
+        "content": "Formation, innovation..."
+      }
+    }
+  ],
+  "whoAreYou": {
+    "title": "Vous êtes ?",
+    "profiles": [
+      {
+        "title": "Particulier",
+        "description": "Idées, conseil, trouver un pro",
+        "url": "/particulier",
+        "icon": "icon-user"
+      },
+      {
+        "title": "Professionnel",
+        "description": "Idées, conseil, trouver un pro",
+        "url": "/professionnel",
+        "icon": "icon-suitcase"
+      },
+      {
+        "title": "Étudiant/Jeune",
+        "description": "Idées, conseil, trouver un pro",
+        "url": "/etudiant",
+        "icon": "icon-student"
+      },
+      {
+        "title": "Presse/partenaires",
+        "description": "Idées, conseil, trouver un pro",
+        "url": "/presse",
+        "icon": "icon-bullhorn"
+      }
+    ]
+  },
+  "search": {
+    "title": "Rechercher",
+    "placeholder": "Votre recherche..."
+  }
+}
