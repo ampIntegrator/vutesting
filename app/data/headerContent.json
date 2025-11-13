@@ -20,9 +20,9 @@
   },
   "menuItems": [
     {
-      "label": "Recommandé <br>pour vous",
+      "label": "Pour vous",
       "submenu": {
-        "title": "Recommandé pour vous",
+        "title": "Pour vous",
         "content": "Ici, on trouvera les liens liés à chaque profil"
       }
     },

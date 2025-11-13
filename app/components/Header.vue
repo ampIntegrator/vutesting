@@ -281,11 +281,11 @@ onUnmounted(() => {
         padding: 0 20px;
         margin: 0 0px;
         span{
-          height: 50px;
+          height: 56px;
 
         }
       span {
-      font-size: 14px;
+      font-size: 15px;
     }
     }
   }
@@ -321,10 +321,9 @@ onUnmounted(() => {
   z-index: 10;
   transition: $trans;
   transform: translateY(-100%);
-  height: 50px;
   .logo {
     img {
-      height: 26px;
+      height: 30px;
     }
 
   }
