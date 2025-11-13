@@ -90,24 +90,30 @@ watch(() => props.isOpen, (newValue) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
-  border-bottom: 1px solid $light;
+  padding: 15px 20px;
+  background-color: $light;
+  &:hover{
+    .modal-close{
+      transform: rotate(90deg)
+    }
+  }
 }
 
 .modal-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 20px;
   color: $main;
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .modal-close {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 24px;
-  color: $ink;
-  transition: color 0.3s ease;
+  font-size: 22px;
+  color: $main;
+  transition: $trans;
   padding: 5px;
   line-height: 1;
   flex-shrink: 0;
@@ -122,7 +128,7 @@ watch(() => props.isOpen, (newValue) => {
 }
 
 .modal-content {
-  padding: 30px;
+  padding: 20px;
 }
 
 // Transitions Vue
@@ -139,7 +145,7 @@ watch(() => props.isOpen, (newValue) => {
   opacity: 0;
 
   .modal {
-    transform: scaleY(0);
+    transform: scaleX(0);
   }
 }
 
@@ -147,7 +153,7 @@ watch(() => props.isOpen, (newValue) => {
   opacity: 0;
 
   .modal {
-    transform: scaleY(0);
+    transform: scaleX(0);
   }
 }
 </style>

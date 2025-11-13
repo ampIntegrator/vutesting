@@ -13,15 +13,28 @@ import headerContent from '@/data/headerContent.json'
       >
         <span class="flexCS">
           <i class="icon" :class="profile.icon"></i>
-          <span class="who-title">{{ profile.title }}</span>
+          <span>
+            <span class="who-title">{{ profile.title }}</span>
+            <p>{{ profile.description }}</p>
+          </span>
         </span>
-        <p>{{ profile.description }}</p>
       </NuxtLink>
+      <div class="bottomLinks flexCSB">
+        <a href="#">Réinitialiser</a>
+        <a href="#">Je ne sais pas, voir tout</a>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.bottomLinks{
+  a{
+    font-weight: 500;
+    font-size: 15px;
+    color: $main
+  }
+}
 .who-links {
   display: flex;
   flex-direction: column;
@@ -31,9 +44,9 @@ import headerContent from '@/data/headerContent.json'
 .who-link {
   background-color: white;
   display: block;
-  padding: 15px;
+  padding: 8px;
   color: $main;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 2px solid $light;
   transition: $trans;
   text-decoration: none;
@@ -55,10 +68,10 @@ import headerContent from '@/data/headerContent.json'
   }
 
   p {
-    margin: 8px 0 0 0;
+    margin: 4px 0 0 0;
     font-size: 14px;
     color: $ink;
-    padding-left: 30px;
+
   }
 
   &:hover {
