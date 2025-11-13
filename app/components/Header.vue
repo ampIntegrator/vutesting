@@ -123,6 +123,12 @@ const handleTopMenuClick = () => {
 const isModalOpen = ref(false)
 const modalType = ref('who') // 'who' ou 'search'
 
+const getModalTitle = () => {
+  return modalType.value === 'who'
+    ? headerContent.whoAreYou.title
+    : headerContent.search.title
+}
+
 const handleWhoClick = (event) => {
   event.preventDefault()
   modalType.value = 'who'
@@ -221,6 +227,7 @@ onUnmounted(() => {
   <Modal
     :is-open="isModalOpen"
     :type="modalType"
+    :title="getModalTitle()"
     @close="closeModal"
   />
 </template>

@@ -4,7 +4,6 @@ import headerContent from '@/data/headerContent.json'
 
 <template>
   <div class="who-are-you">
-    <h2>{{ headerContent.whoAreYou.title }}</h2>
     <div class="who-links">
       <NuxtLink
         v-for="(profile, index) in headerContent.whoAreYou.profiles"
@@ -23,15 +22,6 @@ import headerContent from '@/data/headerContent.json'
 </template>
 
 <style lang="scss" scoped>
-.who-are-you {
-  h2 {
-    margin: 0 0 20px 0;
-    font-size: 24px;
-    color: $main;
-    text-align: center;
-  }
-}
-
 .who-links {
   display: flex;
   flex-direction: column;
