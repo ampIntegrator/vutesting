@@ -1,4 +1,6 @@
 <script setup>
+import headerContent from '@/data/headerContent.json'
+
 const props = defineProps({
     context: {
         type: String,
@@ -8,15 +10,7 @@ const props = defineProps({
 
 const emit = defineEmits(['menuClick'])
 
-const menuItems = [
-    'Recommandé <br>pour vous',
-    'Le Végétal &<br>les métiers du futur',
-    'L\'interprofession<br>VALHOR',
-    'Valoriser<br>la filière',
-    'Filière<br>durable',
-    'Le marché<br>du Végétal',
-    'Faire pousser<br>l\'excellence'
-]
+const menuItems = headerContent.menuItems.map(item => item.label)
 
 const handleClick = (index, event) => {
     emit('menuClick', props.context, index, event)

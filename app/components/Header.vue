@@ -2,6 +2,7 @@
 import MenuList from './MenuList.vue'
 import Modal from './Modal.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
+import headerContent from '@/data/headerContent.json'
 
 const headerRef = ref(null)
 const currentContext = ref(null)
@@ -156,13 +157,13 @@ onUnmounted(() => {
             <img src="/images/logo-white.svg" alt="">
           </NuxtLink>
           <ul class="menu" @click="handleTopMenuClick">
-            <li><NuxtLink to="/actualites">Cotisations & avantages</NuxtLink></li>
-            <li><NuxtLink to="/notre-histoire">Cité verte</NuxtLink></li>
-            <li><NuxtLink to="/qui-sommes-nous">Le Végétal, c'est la vie</NuxtLink></li>
+            <li v-for="(item, index) in headerContent.topMenu" :key="index">
+              <NuxtLink :to="item.url">{{ item.label }}</NuxtLink>
+            </li>
           </ul>
     <div class="headerActionDesktop">
-      <NuxtLink to="/" class="btn outlineWhite espacePro"><span>Espace Pro</span><i class="icon icon-arrow-right"></i></NuxtLink>
-      <a href="#" class="btn outlineWhite whoTrigger" @click="handleWhoClick"><span>Vous êtes ?</span><i class="icon icon-priority-low"></i></a>
+      <NuxtLink to="/" class="btn outlineWhite espacePro"><span>{{ headerContent.actions.espacePro }}</span><i class="icon icon-arrow-right"></i></NuxtLink>
+      <a href="#" class="btn outlineWhite whoTrigger" @click="handleWhoClick"><span>{{ headerContent.actions.youAre }}</span><i class="icon icon-priority-low"></i></a>
       <a href="#" class="btn outlineWhite searchTrigger" @click="handleSearchClick"><i class="icon icon-magnifier"></i></a>
     </div>
     
@@ -192,8 +193,8 @@ onUnmounted(() => {
           <MenuList context="sticky" @menuClick="handleMenuItemClick" />
           
           <div class="headerActionDesktop">
-            <NuxtLink to="/" class="btn outlineMain small espacePro"><span>Espace Pro</span><i class="icon icon-arrow-right"></i></NuxtLink>
-            <NuxtLink to="/" class="btn outlineMain small whoTrigger" @click="handleWhoClick"><span>Vous êtes ?</span><i class="icon icon-priority-low"></i></NuxtLink>
+            <NuxtLink to="/" class="btn outlineMain small espacePro"><span>{{ headerContent.actions.espacePro }}</span><i class="icon icon-arrow-right"></i></NuxtLink>
+            <NuxtLink to="/" class="btn outlineMain small whoTrigger" @click="handleWhoClick"><span>{{ headerContent.actions.youAre }}</span><i class="icon icon-priority-low"></i></NuxtLink>
             <NuxtLink to="/" class="btn outlineMain small searchTrigger"><i class="icon icon-magnifier"></i></NuxtLink>
           </div>
         </div>
@@ -202,46 +203,14 @@ onUnmounted(() => {
     
     <div class="headerSubMenu">
       <div class="container">
-        <!-- NOUVEAU Contenu 1 pour "Recommandé pour vous" -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 0">
-          <h3>Recommandé pour vous</h3>
-          <p>Ici, on trouvera les liens liés à chaque profil</p>
-        </div>
-        
-        <!-- Contenu 2 (ancien 1) -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 1">
-          <h3>Le Végétal & les métiers du futur</h3>
-          <p>Lorem ipsum dolor sit amet...</p>
-        </div>
-        
-        <!-- Contenu 3 (ancien 2) -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 2">
-          <h3>L'interprofession VALHOR</h3>
-          <p>VALHOR représente...</p>
-        </div>
-        
-        <!-- Contenu 4 (ancien 3) -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 3">
-          <h3>Valoriser la filière</h3>
-          <p>Nos actions pour promouvoir...</p>
-        </div>
-        
-        <!-- Contenu 5 (ancien 4) -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 4">
-          <h3>Filière durable</h3>
-          <p>Engagement environnemental...</p>
-        </div>
-        
-        <!-- Contenu 6 (ancien 5) -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 5">
-          <h3>Le marché du Végétal</h3>
-          <p>Chiffres clés, tendances...</p>
-        </div>
-        
-        <!-- Contenu 7 (ancien 6) -->
-        <div class="subMenuContent" v-show="activeMenuIndex === 6">
-          <h3>Faire pousser l'excellence</h3>
-          <p>Formation, innovation...</p>
+        <div
+          v-for="(item, index) in headerContent.menuItems"
+          :key="index"
+          class="subMenuContent"
+          v-show="activeMenuIndex === index"
+        >
+          <h3>{{ item.submenu.title }}</h3>
+          <p>{{ item.submenu.content }}</p>
         </div>
       </div>
     </div>
