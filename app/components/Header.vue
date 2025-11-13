@@ -195,7 +195,7 @@ onUnmounted(() => {
           <div class="headerActionDesktop">
             <NuxtLink to="/" class="btn outlineMain small espacePro"><span>{{ headerContent.actions.espacePro }}</span><i class="icon icon-arrow-right"></i></NuxtLink>
             <NuxtLink to="/" class="btn outlineMain small whoTrigger" @click="handleWhoClick"><span>{{ headerContent.actions.youAre }}</span><i class="icon icon-priority-low"></i></NuxtLink>
-            <NuxtLink to="/" class="btn outlineMain small searchTrigger"><i class="icon icon-magnifier"></i></NuxtLink>
+            <NuxtLink to="/" class="btn outlineMain small searchTrigger" @click="handleSearchClick"><i class="icon icon-magnifier"></i></NuxtLink>
           </div>
         </div>
       </div>
