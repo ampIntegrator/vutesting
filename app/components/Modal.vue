@@ -42,10 +42,13 @@ const handleBackdropClick = () => {
 
 // Gestion overflow-hidden sur body quand modal ouverte
 watch(() => props.isOpen, (newValue) => {
-  if (newValue) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
+  // Vérifier que nous sommes côté client (pas SSR)
+  if (typeof document !== 'undefined') {
+    if (newValue) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
   }
 }, { immediate: true })
 </script>
