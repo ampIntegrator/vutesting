@@ -15,7 +15,6 @@ const handleSearch = () => {
 
 <template>
   <div class="search-header">
-    <h2>{{ headerContent.search.title }}</h2>
     <form @submit.prevent="handleSearch">
       <div class="search-input-group">
         <input
@@ -33,15 +32,6 @@ const handleSearch = () => {
 </template>
 
 <style lang="scss" scoped>
-.search-header {
-  h2 {
-    margin: 0 0 20px 0;
-    font-size: 24px;
-    color: $main;
-    text-align: center;
-  }
-}
-
 .search-input-group {
   display: flex;
   gap: 10px;
