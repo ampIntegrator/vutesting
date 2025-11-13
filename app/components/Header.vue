@@ -247,53 +247,13 @@ onUnmounted(() => {
     </div>
 
   </header>
-  <div id="whoAreYou">
-  <div class="innerWho">
-      <a href="#">
-          <span class="flexCS">
-              <i class="icon icon-user"></i>
-              <span>Particulier</span>
-          </span>
-          <p>Idées, conseil, trouver un pro</p>
-      </a>
-      <a href="#">
-          <span class="flexCS">
-              <i class="icon icon-suitcase"></i>
-              <span>Professionnel</span>
-          </span>
-          <p>Idées, conseil, trouver un pro</p>
-      </a>
-      <a href="#">
-          <span class="flexCS">
-              <i class="icon icon-student"></i>
-              <span>Étudiant/Jeune</span>
-          </span>
-          <p>Idées, conseil, trouver un pro</p>
-      </a>
-      <a href="#">
-          <span class="flexCS">
-              <i class="icon icon-bullhorn"></i>
-              <span>Presse/partenaires</span>
-          </span>
-          <p>Idées, conseil, trouver un pro</p>
-      </a>
-      <a href="#">
-          <span class="flexCS">
-              <i class="icon icon-greek-temple"></i>
-              <span>Institution/Collectivité</span>
-          </span>
-          <p>Idées, conseil, trouver un pro</p>
-      </a>
-      <a href="#">
-          <span class="flexCS">
-              <i class="icon icon-alert-question"></i>
-              <span>Je ne sais pas</span>
-          </span>
-      </a>
 
-  </div>
-</div>
-<div class="backdrop"></div>
+  <!-- Modal Component -->
+  <Modal
+    :is-open="isModalOpen"
+    :type="modalType"
+    @close="closeModal"
+  />
 </template>
 
 
