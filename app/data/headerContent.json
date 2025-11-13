@@ -80,21 +80,27 @@
       },
       {
         "title": "Professionnel",
-        "description": "Idées, conseil, trouver un pro",
+        "description": "Normes, aides, ressources, cotisations",
         "url": "/professionnel",
         "icon": "icon-suitcase"
       },
       {
         "title": "Étudiant/Jeune",
-        "description": "Idées, conseil, trouver un pro",
+        "description": "Métier, formations, alternance",
         "url": "/etudiant",
         "icon": "icon-student"
       },
       {
         "title": "Presse/partenaires",
-        "description": "Idées, conseil, trouver un pro",
+        "description": "Dossiers, chiffres clés, contacts",
         "url": "/presse",
         "icon": "icon-bullhorn"
+      },
+      {
+        "title": "Institution/collectivités",
+        "description": "Données, ville verte, ressources",
+        "url": "/presse",
+        "icon": "icon-greek-temple"
       }
     ]
   },

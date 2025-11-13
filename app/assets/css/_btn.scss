@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: start;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: 6px;
     transition: $trans ;
 
@@ -40,6 +40,11 @@
             background-color: $white;
             color: $main !important;
         }
+    }
+
+    &.fillMain{
+        background-color: $main;
+        color: white 
     }
 
     &.btnReverse {
