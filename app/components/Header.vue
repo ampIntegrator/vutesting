@@ -294,6 +294,14 @@ onUnmounted(() => {
       span {
       font-size: 15px;
     }
+          &:first-child{
+        background-color: $light;
+        span{
+          font-weight: 600;
+          color: $main;
+          text-transform: uppercase;
+        }
+      }
     }
   }
 }
