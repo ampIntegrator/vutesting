@@ -71,52 +71,52 @@ const handleScroll = () => {
 // Script 2 : Gestion du megamenu
 const closeSubMenu = () => {
   if (!headerRef.value) return
-  
+
   const headerSubMenu = headerRef.value.querySelector('.headerSubMenu')
   const headerBottomItems = headerRef.value.querySelectorAll('.headerBottom ul.ulWithSub li')
   const stickyHeaderItems = headerRef.value.querySelectorAll('.stickyHeader ul.ulWithSub li')
-  
+
   if (headerSubMenu) {
-    headerSubMenu.style.height = '0px'
+    headerSubMenu.style.transform = 'scaleY(0)'
     headerSubMenu.style.opacity = '0'
   }
-  
+
   headerBottomItems.forEach(li => li.classList.remove('active'))
   stickyHeaderItems.forEach(li => li.classList.remove('active'))
-  
+
   currentContext.value = null
 }
 
 const openSubMenu = (context, index) => {
   if (!headerRef.value) return
-  
+
   const headerSubMenu = headerRef.value.querySelector('.headerSubMenu')
   const headerBottom = headerRef.value.querySelector('.headerBottom')
   const stickyHeader = headerRef.value.querySelector('.stickyHeader')
-  
+
   if (!headerSubMenu) return
-  
+
   currentContext.value = context
   activeMenuIndex.value = index
-  
+
   if (context === 'bottom') {
     const headerBottomTop = headerBottom.offsetTop
     const headerBottomHeight = headerBottom.offsetHeight
-    
+
     headerSubMenu.style.position = 'absolute'
     headerSubMenu.style.top = (headerBottomTop + headerBottomHeight) + 'px'
     headerSubMenu.style.left = '0'
     headerSubMenu.style.width = '100%'
   } else if (context === 'sticky') {
     const stickyRect = stickyHeader.getBoundingClientRect()
-    
+
     headerSubMenu.style.position = 'fixed'
     headerSubMenu.style.top = (stickyRect.bottom) + 'px'
     headerSubMenu.style.left = '0'
     headerSubMenu.style.width = '100%'
   }
-  
-  headerSubMenu.style.height = '200px'
+
+  headerSubMenu.style.transform = 'scaleY(1)'
   headerSubMenu.style.opacity = '1'
 }
 
@@ -329,12 +329,12 @@ onUnmounted(() => {
 
 .headerSubMenu {
   background-color: $light;
-  height: 0;
-  overflow: hidden;
   display: flex;
   align-items: center;
   opacity: 0;
-  transition: height 0.3s ease, opacity 0.3s ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   position: fixed; // Ajouté pour le positionnement dynamique
   z-index: 5; // En dessous du sticky mais au-dessus du contenu
   width: 100%;

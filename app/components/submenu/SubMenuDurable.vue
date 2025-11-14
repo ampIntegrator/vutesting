@@ -42,5 +42,11 @@
     margin-bottom: 15px;
     color: $main;
   }
+
+  .submenu-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
 }
 </style>
