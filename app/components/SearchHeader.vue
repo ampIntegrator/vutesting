@@ -23,7 +23,7 @@ const handleSearch = () => {
           :placeholder="headerContent.search.placeholder"
           class="search-input"
         />
-        <button type="submit" class="btn btnOutline search-btn">
+        <button type="submit" class="btn fillMain">
           <i class="icon icon-magnifier"></i>
         </button>
       </div>
@@ -34,35 +34,34 @@ const handleSearch = () => {
 <style lang="scss" scoped>
 .search-input-group {
   display: flex;
-  gap: 10px;
   align-items: stretch;
 }
 
 .search-input {
   flex-grow: 1;
-  height: 44px;
+  height: 36px;
   display: block;
-  border-radius: 6px;
-  border: 2px solid $light;
-  padding: 0 15px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  padding: 0 8px;
   outline: none;
-  font-size: 16px;
+  font-size: 15px;
   transition: $trans;
-
-  &:focus {
-    border-color: $main;
-    box-shadow: 0 0 0 3px rgba($main, 0.1);
-  }
+  border: 0;
+  background-color: $light;
 
   &::placeholder {
     color: #999;
   }
 }
 
-.search-btn {
-  height: 44px;
-  min-width: 44px;
-  padding: 0 15px;
+.btn {
+  height: 36px;
+  min-width: 36px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
